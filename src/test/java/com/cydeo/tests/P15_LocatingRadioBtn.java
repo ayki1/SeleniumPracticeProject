@@ -1,10 +1,12 @@
-package com.cydeo;
+package com.cydeo.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
 
 public class P15_LocatingRadioBtn {
     public static void main(String[] args) {
@@ -33,10 +35,32 @@ public class P15_LocatingRadioBtn {
         System.out.println("After click blueRadioBtn.isSelected() = "
                 + blueRadioBtn.isSelected());
 
+        //identify green radio btn
+        WebElement greenRadioBtn=driver.findElement(By.id("green"));
+        greenRadioBtn.click();
 
+        System.out.println("greenRadioBtn.isSelected() = "
+                + greenRadioBtn.isSelected());
+
+        System.out.println("greenRadioBtn.isEnabled() = "
+                + greenRadioBtn.isEnabled());
+
+        //list radios
+        List<WebElement> allColorRadios=driver.findElements(By.name("color"));
+        System.out.println("allColorRadios.size() = "
+                + allColorRadios.size());
+
+        // check radio for enable or disable
+        for (WebElement eachColorRadio : allColorRadios) {
+            System.out.println("Current radio button is "
+                    + eachColorRadio.getAttribute("id"));
+            System.out.println("is it Enabled = "
+                    + eachColorRadio.isEnabled());
+            System.out.println("is it Selected = "
+                    + eachColorRadio.isSelected());
+        }
+                
         System.out.println("the end");
-
-
 
     }
 }

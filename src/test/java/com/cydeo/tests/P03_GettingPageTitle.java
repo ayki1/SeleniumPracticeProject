@@ -1,10 +1,10 @@
-package com.cydeo;
+package com.cydeo.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class P04_FullScreenMode {
+public class P03_GettingPageTitle {
     public static void main(String[] args) {
         // set up chrome and create WebDriver instance
         WebDriverManager.chromedriver().setup();
@@ -13,9 +13,16 @@ public class P04_FullScreenMode {
         // navigate to google and out the title
         driver.get("https://www.cydeo.com");
 
-        driver.manage().window().maximize();
+        String title= driver.getTitle();
+        System.out.println("Title of the page: "+title);
 
-        //driver.manage().window().fullscreen();
+        if (title.equals("Cydeo")) {
+            System.out.println("test passed");
+        }else {
+            System.out.println("test failed");
+        }
+
+        driver.quit();
 
     }
 }

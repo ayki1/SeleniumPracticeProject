@@ -1,4 +1,4 @@
-package com.cydeo;
+package com.cydeo.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
